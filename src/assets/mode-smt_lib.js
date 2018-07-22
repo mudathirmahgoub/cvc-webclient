@@ -44,14 +44,13 @@ define("ace/mode/smt_lib_highlight_rules",
     var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
     var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-    var LustreHighlightRules = function () {
+    var SmtLibHighlightRules = function () {
         var keywordMapper = this.createKeywordMapper({
-            "variable.language": "this",
-            "keyword":  "node|returns|if|then|else|false|true|bool|" +
-                        "int|real|var|pre|PROPERTY|let|tel|condact|" +
-                        "and|or|not|contract|assume|guarantee|mode|" +
-                        "require|ensure|assert|import|type|enum|check|const",
-            "constant.language": "true|false"
+          "variable.language": "this",
+          "keyword":"logic|set|option|sort|declare|fun|assert|exists|forall|check|sat|"+
+                        "get|model|or|and|not|forall|exists|mkTuple|member|Set|tclosure|" +
+                        "const|distinct|product|singleton|",
+            "constant.language": "true|false|univset|"
         }, "identifier");
         this.$rules = {
             "start": [
@@ -65,7 +64,7 @@ define("ace/mode/smt_lib_highlight_rules",
                 },
                 {
                     token : "comment",
-                    regex : "--.*$"
+                    regex : ";.*$"
                 },
                 {
                     token: "contract", // multi line contract
@@ -132,9 +131,9 @@ define("ace/mode/smt_lib_highlight_rules",
         this.normalizeRules();
     };
 
-    oop.inherits(LustreHighlightRules, TextHighlightRules);
+    oop.inherits(SmtLibHighlightRules, TextHighlightRules);
 
-    exports.LustreHighlightRules = LustreHighlightRules;
+    exports.SmtLibHighlightRules = SmtLibHighlightRules;
 });
 
 define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"],
@@ -439,13 +438,13 @@ define("ace/mode/smt_lib",
 
     var oop = require("../lib/oop");
     var TextMode = require("./text").Mode;
-    var LustreHighlightRules = require("./smt_lib_highlight_rules").LustreHighlightRules;
+    var SmtLibHighlightRules = require("./smt_lib_highlight_rules").SmtLibHighlightRules;
     var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
     var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
     var CStyleFoldMode = require("./folding/smt_lib").FoldMode;
 
     var Mode = function () {
-        this.HighlightRules = LustreHighlightRules;
+        this.HighlightRules = SmtLibHighlightRules;
         this.$outdent = new MatchingBraceOutdent();
         this.$behaviour = new CstyleBehaviour();
         this.foldingRules = new CStyleFoldMode();
