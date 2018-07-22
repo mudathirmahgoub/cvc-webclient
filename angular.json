@@ -28,7 +28,8 @@
             "scripts": [
               "node_modules/ace-builds/src-min/ace.js",
               "node_modules/ace-builds/src-min/theme-idle_fingers.js",
-              "node_modules/ace-builds/src-min/mode-java.js"
+              "node_modules/ace-builds/src-min/mode-java.js",
+              "src/assets/mode-smt_lib.js"
             ]
           },
           "configurations": {

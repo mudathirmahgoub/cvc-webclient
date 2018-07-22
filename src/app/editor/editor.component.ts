@@ -11,6 +11,6 @@ export class EditorComponent implements AfterViewInit {
   ngAfterViewInit() {
     console.log(this.editor);
     this.editor.setTheme('idle_fingers');
-    this.editor.setMode('java');
+    this.editor.setMode('smt_lib');
   }
 }
