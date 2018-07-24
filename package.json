@@ -20,9 +20,11 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "angular-split": "^1.0.0-rc.3",
     "core-js": "^2.5.4",
     "ng2-ace-editor": "^0.3.8",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

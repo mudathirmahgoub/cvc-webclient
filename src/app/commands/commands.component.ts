@@ -11,5 +11,7 @@ export class CommandsComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  run() {
+    console.log('run');
+  }
 }
